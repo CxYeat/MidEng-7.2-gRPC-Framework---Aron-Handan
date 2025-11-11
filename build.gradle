@@ -43,14 +43,22 @@ tasks.register('runServer', JavaExec) {
     group = 'application'
     description = 'Runs the gRPC server'
     classpath = sourceSets.main.runtimeClasspath
-    mainClass = 'HelloWorldServer'
+    mainClass = 'WarehouseServer'
 }
 
-tasks.register('runClient', JavaExec) {
+tasks.register('runClient', ) {
     group = 'application'
     description = 'Runs the gRPC client'
     classpath = sourceSets.main.runtimeClasspath
-    mainClass = 'HelloWorldClient'
+    mainClass = 'WarehouseClient'
      args 'Aron'
      args 'Handan'
 }
+
+tasks.register('runPythonClient', Exec) {
+    group = 'application'
+    description = 'Runs the Python gRPC client'
+    commandLine 'python3', 'src/main/python/WarehouseClient.py', 'Aron', 'Handan'
+}
+
+

@@ -1,0 +1,35 @@
+// Which syntax this file uses.
+syntax = "proto3";
+
+// Service contract
+service WarehouseService {
+  rpc storeWarehouse(WarehouseData) returns (StoreResponse);
+}
+
+message ProductData {
+  string productID = 1;
+  string productName = 2;
+  string productCategory = 3;
+  int32 productQuantity = 4;
+  string productUnit = 5;
+}
+
+// Request payload
+message WarehouseData {
+  string warehouseID = 1;
+  string warehouseAddress = 2;
+  string warehousePostalCode = 3;
+  string warehouseCity = 4;
+  string warehouseCountry = 5;
+  string timestamp = 6;
+  //List in gRPC
+  repeated ProductData productData = 8;
+}
+
+
+
+// Response payload
+message StoreResponse {
+  string text = 1;
+  bool isSuccess = 2;
+}
