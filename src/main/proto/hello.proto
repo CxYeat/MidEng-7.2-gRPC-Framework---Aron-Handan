@@ -1,14 +1,19 @@
+// Which syntax this file uses.
 syntax = "proto3";
 
+// Service contract
 service HelloWorldService {
   rpc hello(HelloRequest) returns (HelloResponse) {}
 }
 
+// Request payload
 message HelloRequest {
-  string firstname = 1;
-  string lastname = 2;
+  string firstname = 1; //each field gets a unique ID
+  string lastname = 2; // 1-15 is 1 byte and 16-2047 are 2 bytes
+                      //2^(n)-1
 }
 
+// Response payload
 message HelloResponse {
   string text = 1;
 }
