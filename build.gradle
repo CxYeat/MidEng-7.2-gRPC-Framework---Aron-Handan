@@ -51,14 +51,12 @@ tasks.register('runClient', ) {
     description = 'Runs the gRPC client'
     classpath = sourceSets.main.runtimeClasspath
     mainClass = 'WarehouseClient'
-     args 'Aron'
-     args 'Handan'
 }
 
 tasks.register('runPythonClient', Exec) {
     group = 'application'
     description = 'Runs the Python gRPC client'
-    commandLine 'python3', 'src/main/python/WarehouseClient.py', 'Aron', 'Handan'
+    commandLine 'python', 'src/main/resources/warehouseClient.py'
 }
 
 
